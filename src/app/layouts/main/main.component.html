@@ -1,0 +1,199 @@
+<div (mousewheel)="getCoordinates(element,$event)" (mousemove)="getCoordinates(element,$event)"
+     class="w-full h-full hover:cursor-crosshair ">
+
+  <div id="header-video" class="header-video">
+
+    <video #videoElement preload="auto" autoplay muted loop playsinline oncanplay="this.play()"
+           (canplay)="videoElement.play()"
+           (loadedmetadata)="videoElement.muted = true"
+           poster="https://firebasestorage.googleapis.com/v0/b/furniture-commercial.appspot.com/o/poster.png?alt=media&token=785e0dc3-896b-4b96-a1eb-e922be8339a4">
+        <source
+          src="https://firebasestorage.googleapis.com/v0/b/furniture-commercial.appspot.com/o/backgroundvideo%20(1).mp4?alt=media&token=d9f03476-3eac-4130-ae10-a2a1bc5d30ca"
+          type="video/mp4">
+    </video>
+
+  </div>
+
+  <div class="header-text">
+
+    <div class="MVP">Місце Зустрічі Професіоналів</div>
+    <div class="main-video-buttons">
+      <button (click)="scrollTO()" ><a class="w-full h-full" >Gallery</a></button>
+      <button [routerLink]="['/Catalog','chair']">New Collection </button>
+    </div>
+    <div class="arrow"></div>
+
+  </div>
+
+  <div class="slider outline outline-1 outline-amber-950">
+    <section>
+      <article>
+        <div>
+          <ul>
+            <li class="discount-1"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-2"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-1"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-2"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-1"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-2"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-1"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-2"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-1"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-2"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li class="discount-1"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-2"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-1"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-2"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-1"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-2"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-1"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-2"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-1"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+            <li class="discount-2"><span style="margin-right: 5px">%</span>discounts<span
+              style="margin-left: 5px">%</span></li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <section class="screen-2 overflow-x-hidden">
+    <div #left style="height: 500px;" class="md:w-1/3 w-full overflow-hidden relative flex justify-center items-center">
+      <div [routerLink]="['/Catalog','chair']" class="absolute mx-auto z-10 screen-2-buttons">Classic</div>
+      <img loading="lazy"
+           src="https://firebasestorage.googleapis.com/v0/b/furniture-commercial.appspot.com/o/Kissed%20by%20the%20sun%20%F0%9F%8C%9E%20%23livingchallenge%20%23wohnzimmerges___%20(1).jpg?alt=media&token=e3e3c842-22e7-4868-8474-b3dbf8c02f05"
+           alt=""></div>
+      <div #center style="height: 500px;"
+         class="md:w-1/3 w-full overflow-hidden relative flex justify-center items-center">
+        <div [routerLink]="['/Catalog','chair']" class="absolute mx-auto z-10 screen-2-buttons">Premium</div>
+        <img loading="lazy"
+           src="https://firebasestorage.googleapis.com/v0/b/furniture-commercial.appspot.com/o/classic%20(1).jpg?alt=media&token=adb06caf-4987-4e26-8bce-069de9b73f01"
+           alt="">
+      </div>
+      <div #right style="height: 500px;"
+         class="md:w-1/3 w-full overflow-hidden relative flex justify-center items-center">
+        <div [routerLink]="['/Catalog','chair']" class="absolute mx-auto z-10 screen-2-buttons">Декор</div>
+        <img loading="lazy"
+           src="https://firebasestorage.googleapis.com/v0/b/furniture-commercial.appspot.com/o/Warm%20Interior%20Design%20With%20A%20Soft%20Lighting%20Scheme%20(1).jpg?alt=media&token=ffdb9381-7f00-44b1-a58d-1dadb336ed2d"
+           alt="">
+      </div>
+  </section>
+
+  <div class=" flex justify-center items-center screen-2-text">
+    <div style="background-color: rgba(53,40,31,0.95);" class="border-l border-r px-10 border-r-2 border-l-2">
+      Кожен елемент відбиває вашу неповторну індивідуальність. <br>
+      Завдяки нам, ваш інтер'єр ️ оживає, стаючи виразним та затишним!
+    </div>
+  </div>
+
+  <div class="swiper-sections">
+    <div style="padding-bottom: 100px"
+      class="swiper-section-1">
+      <div class="swiper-section-1-wrapper">
+        <app-swiper-section class="swiper-section-1-swiper"></app-swiper-section>
+      </div>
+      <div style="" class="order-1 md:ml-10 text-center  md:w-1/3 md:order-2  mb-5 md:mb-10 md:text-3xl text-2xl">
+        <div style="background-color: rgba(53,40,31,0.95);box-shadow: 2px 2px 225px seashell"
+             class="md:w-3/4 h-20 flex justify-center items-center mx-auto border-l border-r px-10 border-r-2 border-l-2">
+          Collection Levante
+        </div>
+      </div>
+
+    </div>
+    <div
+      class=" md:w-full w-full first-swiper-logo-2 flex flex-col md:flex-row  justify-center items-center  h-1/3  pt-12 pb-12">
+
+      <div  class=" order-1 md:ml-10 text-center  md:w-1/3 md:order-1  mb-5 md:mb-10 md:text-3xl text-2xl ">
+        <div style="background-color: rgba(53,40,31,0.95);box-shadow: 2px 2px 225px seashell"
+             class="md:w-3/4 h-20 flex justify-center items-center mx-auto border-l border-r px-10 border-r-2 border-l-2">
+          Collection YAEBY
+        </div>
+      </div>
+      <div class="w-4/5 md:w-2/3 order-1 md:order-2">
+      <div class=" h-full  flex flex-col justify-center mx-auto">
+        <app-swiper-section2 class="relative flex flex-col justify-center items-center"></app-swiper-section2>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <section class="screen-3">
+    <div class="screen-3-best-sellers">
+      <div class="s-3-b-s">Gallery</div>
+    </div>
+    <div id="gallery" class="best-sellers-grid">
+      <div><img loading="lazy" style="object-fit: cover;" src="./assets/screen-3-1.png" alt=""></div>
+      <div><img loading="lazy" style="object-fit: cover;" src="./assets/screen-3-2.png" alt=""></div>
+      <div><img loading="lazy" style="object-fit: cover;" src="./assets/screen-3-3.jpg" alt=""></div>
+      <div><img loading="lazy" style="object-fit: cover;" src="./assets/screen-3-4.jpg" alt=""></div>
+      <div><img loading="lazy" style="object-fit: cover;" src="./assets/screen-3-1.png" alt=""></div>
+      <div><img loading="lazy" style="object-fit: cover;" src="./assets/screen-3-5.jpg" alt=""></div>
+      <div><img loading="lazy" style="object-fit: cover;" src="./assets/screen-3-6.jpg" alt=""></div>
+      <div><img loading="lazy" style="object-fit: cover;" src="./assets/screen-3-1.png" alt=""></div>
+      <div><img loading="lazy" style="object-fit: cover;" src="./assets/screen-3-6.jpg" alt=""></div>
+      <div><img loading="lazy" style="object-fit: cover;" src="./assets/screen-3-4.jpg" alt=""></div>
+    </div>
+  </section>
+
+  <section class="screen-4 flex flex-col md:flex-row">
+    <div class="w-full  md:w-1/2 h-1/2 md:h-full left">
+      <div class="heading-screen-4-left"> Почніть свій шлях до розкоші з нами</div>
+      <div class="description-screen-4-left flex ">
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad at eius esse expedita laudantium magni officia
+          reprehenderit. Eos, laboriosam, nihil!
+        </div>
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad at eius esse expedita laudantium magni officia
+          reprehenderit. Eos, laboriosam, nihil!
+        </div>
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad at eius esse expedita laudantium magni officia
+          reprehenderit. Eos, laboriosam, nihil!
+        </div>
+
+      </div>
+      <div class="screen-4-button">
+        <button [routerLink]="['/Catalog','chair']">Premium</button>
+      </div>
+
+    </div>
+    <div class="w-full   md:w-1/2 flex justify-center items-center  screen-4-right">
+      <img loading="lazy" width="100%" class=" screen-4-img-1"
+           src="https://firebasestorage.googleapis.com/v0/b/furniture-commercial.appspot.com/o/Home-cinema%20(1).jpg?alt=media&token=e9afda36-f7d8-4bf2-b214-ba113f1a62bc"
+           alt="">
+    </div>
+  </section>
+
+  <div class="w-full main-footer-wrapper">
+    <app-footer></app-footer>
+  </div>
+
+</div>
+
+
+<div #element style="cursor: none; position: absolute; width: 100px;height: 100px; margin-top:-50px; margin-left: -50px;border-radius: 50%;  pointer-events: none;     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: invert(123);
+    -webkit-backdrop-filter: blur(2px);
+    border:1px solid rgb(255,255,255);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);"></div>

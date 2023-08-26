@@ -1,0 +1,35 @@
+<div class="catalog">
+  <div class="w-full h-full catalog-wrapper">
+    <div class="catalog-menu">
+      <button (click)="SortUp()"> Дорожче</button>
+      <button (click)="SortDown()">Дешевше</button>
+      <button>Популярне</button>
+    </div>
+    <div class="md:w-2/3 w-full mx-auto text-xl text-amber-950 border-b border-b-orange-800 pb-3 mt-3 toolbar">
+      <span>  </span>
+      <span>{{'Catalog'}}</span>
+      <span style="margin: 0px 10px">>></span>
+      <span>{{receivedData}}s | </span>
+      <span>{{filtrationString}}</span>
+    </div>
+    <div #parentSorting class="catalog-view">
+      <div [routerLink]="['/Catalog',receivedData,item?.name]" (mouseleave)="hidePrice(catalog_item_price)"
+           (mouseenter)="showPrice(catalog_item_price)" class="shopping-item " *ngFor="let item of transformedData">
+        <ngx-skeleton-loader *ngIf="loader" count="1" appearance="line"></ngx-skeleton-loader>
+        <img #imageElement (load)="removeSkeleton()" [src]="item?.image" loading="lazy" alt="">
+        <p
+          style="text-align:center;opacity: 0;margin-top:-37px;transition-duration: 0.2s; border-bottom:2px solid saddlebrown"
+          #catalog_item_price
+          class="Price">{{item?.price |currency:"₴":"symbol"}}</p>
+        <h3 class="item-title">
+          {{item?.name}}
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="footer-catalog-wrapper">
+    <app-footer></app-footer>
+  </div>
+</div>
+
+

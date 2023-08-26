@@ -1,0 +1,125 @@
+<div class="navbar">
+  <div class="md:hidden duration-300">
+    <nav #navBar class="header__nav nav-bar absolute flex">
+      <div class="w-full h-full ">
+       <div class="w-full flex justify-center items-center py-5">
+         <img (click)="getBurger()" routerLink="/Home"  src="./assets/header_logo.png" style="margin:10px 10px"  width="60px" alt="">
+        <div (click)="getBurger()" routerLink="/Home" class="burgerLogo">MVP</div>
+       </div>
+      <div #toggle_menu class="toggle-menu" (click)="getBurger()">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+      </div>
+      <ul class="nav-list relative">
+        <li (click)="openClassic()" class="nav-list-item hover:cursor-pointer"><a
+
+        class="nav-link ">Classic</a></li>
+        <li (click)="openPremium()" class="nav-list-item hover:cursor-pointer"><a
+
+        class="nav-link">Premium</a></li>
+        <li (click)="openDecor()" class="nav-list-item hover:cursor-pointer"><a  class="nav-link">Декор</a></li>
+
+        <div #PremiumProducts class="hidden absolute  PremiumProducts">
+          <a (click)="setParameter('chair')"  [routerLink]="['/Catalog','chair']" class="flex w-full  h-full justify-start items-center py-2.5 gap-2.5" > <div (click)="getBurger()" class="w-full flex justify-start items-center py-2.5 gap-2.5"><img width="30px" src="./assets/chair%20(1).png" alt=""><div class="premiumAncorInnerText">Стільці</div></div> </a>
+          <a (click)="setParameter('table')"  [routerLink]="['/Catalog','table']" class="flex  w-full justify-start items-center py-2.5 gap-2.5"  > <div (click)="getBurger()" class="w-full flex justify-start items-center py-2.5 gap-2.5"><img width="30px" src="./assets/furniture-and-household.png" alt=""><div class="premiumAncorInnerText">Столи</div></div> </a>
+          <a (click)="setParameter('closet')" [routerLink]="['/Catalog','closet']" class="flex w-full justify-start items-center py-2.5 gap-2.5" > <div (click)="getBurger()" class="w-full flex justify-start items-center py-2.5 gap-2.5"><img width="30px" src="./assets/furniture.png" alt=""><div class="premiumAncorInnerText">Шкафи</div></div></a>
+          <a (click)="setParameter('closet')" [routerLink]="['/Catalog','closet']" class="flex w-full justify-start items-center py-2.5 gap-2.5" > <div (click)="getBurger()" class="w-full flex justify-start items-center py-2.5 gap-2.5"><img width="30px" src="./assets/wardrobe.png" alt=""><div class="premiumAncorInnerText">Гардероб</div></div></a>
+          <a (click)="setParameter('drawer')" [routerLink]="['/Catalog','drawer']" class="flex w-full justify-start items-center py-2.5 gap-2.5" > <div (click)="getBurger()" class="w-full flex justify-start items-center py-2.5 gap-2.5"><img width="30px" src="./assets/nightstand.png" alt=""><div class="premiumAncorInnerText">Шухляди</div> </div> </a>
+          <a (click)="setParameter('drawer')" [routerLink]="['/Catalog','drawer']" class="flex w-full justify-start items-center py-2.5 gap-2.5" > <div (click)="getBurger()" class="w-full flex justify-start items-center py-2.5 gap-2.5"><img width="30px" src="./assets/cleaning-spray.png" alt=""><div class="premiumAncorInnerText">Догляд</div> </div></a>
+          <a (click)="setParameter('chair')"  [routerLink]="['/Catalog','chair']"  class="flex w-full justify-start items-center py-2.5 gap-2.5" > <div (click)="getBurger()" class="w-full flex justify-start items-center py-2.5 gap-2.5"> <img width="35px" src="./assets/armchair.png" alt=""><div class="premiumAncorInnerText">Пуфіки й крісла</div></div></a>
+        </div>
+        <div #ClassicProducts class="flex absolute  ClassicProducts">
+          <a (click)="setParameter('chair')"  [routerLink]="['/Catalog','chair']" class="flex w-full  h-full justify-start items-center py-2.5 gap-2.5" >   <div (click)="getBurger()"  class="w-full flex justify-start items-center py-2.5 gap-2.5">  <img width="30px" src="./assets/chair%20(1).png" alt=""><div class="anchorInnerText">Стільці</div></div> </a>
+          <a (click)="setParameter('table')"  [routerLink]="['/Catalog','table']" class="flex w-full justify-start items-center py-2.5 gap-2.5" >          <div (click)="getBurger()"  class="w-full flex justify-start items-center py-2.5 gap-2.5"> <img width="30px" src="./assets/furniture-and-household.png" alt=""><div class="anchorInnerText">Столи</div></div>  </a>
+          <a (click)="setParameter('closet')" [routerLink]="['/Catalog','closet']" class="flex w-full  justify-start items-center py-2.5 gap-2.5" >        <div (click)="getBurger()" class="w-full flex justify-start items-center py-2.5 gap-2.5"> <img width="30px" src="./assets/furniture.png" alt=""><div class="anchorInnerText">Шкафи</div></div>  </a>
+          <a (click)="setParameter('closet')" [routerLink]="['/Catalog','closet']" class="flex w-full  justify-start items-center py-2.5 gap-2.5" >         <div  (click)="getBurger()" class="w-full flex justify-start items-center py-2.5 gap-2.5"> <img width="30px" src="./assets/wardrobe.png" alt=""><div class="anchorInnerText">Гардероб</div></div>  </a>
+          <a (click)="setParameter('drawer')" [routerLink]="['/Catalog','drawer']" class="flex w-full  justify-start items-center py-2.5 gap-2.5" >       <div  (click)="getBurger()"  class="w-full flex justify-start items-center py-2.5 gap-2.5">   <img width="30px" src="./assets/nightstand.png" alt=""><div class="anchorInnerText">Шухляди</div> </div> </a>
+          <a (click)="setParameter('drawer')"  [routerLink]="['/Catalog','drawer']" class="flex w-full justify-start items-center py-2.5 gap-2.5" >        <div  (click)="getBurger()" class="w-full flex justify-start items-center py-2.5 gap-2.5">  <img width="35px" src="./assets/cleaning-spray.png" alt=""><div class="anchorInnerText">Догляд</div></div>  </a>
+        </div>
+        <div #DecorProducts class="hidden absolute  DecorProducts">
+          SOON!
+        </div>
+
+      </ul>
+        <div class="absolute bottom-0 w-full h-20 burger-footer flex justify-center items-center font-medium">
+          ©Copyright. All right reserved
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="nav-anchor-links ">
+    <div routerLink="/Home" class="logo">
+      <img (click)="resetNavBar()" class="image" src="./assets/circul-removebg-preview.png" alt=""><span  (click)="resetNavBar()">MVP</span>
+    </div>
+    <a  routerLink="/Home" class="hover:scale-100 duration-500 hover:bg-orange-950 hover:bg-opacity-30"><span (click)="resetNavBar()">Головна</span></a>
+    <a (click)="showClassicDropDownMenu()"
+       class="hover:scale-100 duration-500 hover:bg-orange-950 hover:bg-opacity-30 hover:cursor-pointer"><span
+    >Classic</span></a>
+    <ul #ClassicDropDownMenu class="classic overflow-hidden relative">
+      <li class="flex h-full gap-x-10 justify-center items-center">
+        <div class="flex flex-col justify-around items-center gap-6 ">
+          <a (click)="setParameter('chair')" (mouseenter)="changeNavImage($event)" [routerLink]="['/Catalog','chair']"
+            ><span (click)="showClassicDropDownMenu()">Стільці</span> </a>
+          <a (click)="setParameter('table')" (mouseenter)="changeNavImage($event)" [routerLink]="['/Catalog','table']"
+             ><span (click)="showClassicDropDownMenu()"> Столи</span></a>
+          <a (click)="setParameter('closet')" (mouseenter)="changeNavImage($event)" [routerLink]="['/Catalog','closet']"
+            ><span (click)="showClassicDropDownMenu()">Шкафи</span></a>
+          <a (click)="setParameter('drawer')" (mouseenter)="changeNavImage($event)" [routerLink]="['/Catalog','drawer']"
+            ><span (mouseenter)="changeNavImage($event)" (click)="showClassicDropDownMenu()">Шухляди</span></a>
+          <a (click)="setParameter('drawer')" (mouseenter)="changeNavImage($event)" [routerLink]="['/Catalog','drawer']"
+           ><span (mouseenter)="changeNavImage($event)" (click)="showClassicDropDownMenu()">Гардероб</span></a>
+        </div>
+
+        <div>
+          <img  class="duration-500" #htmlImageElement1 width="430px" src="./assets/Aesthetic-Decor-IMG_1724FF.jpg" alt="">
+        </div>
+
+      </li>
+      <div [routerLink]="['/Catalog','drawer']" (click)="setParameter('drawer')" class="absolute bottom-0 mx-auto w-full allStaff  text-center"><div (click)="showClassicDropDownMenu()">Усі  товари</div></div>
+    </ul>
+    <a (click)="showPremiumDropDownMenu()"
+       class="hover:scale-100 duration-300 hover:bg-orange-950 hover:bg-opacity-30 hover:cursor-pointer"><span
+    >Premium</span></a>
+    <ul #PremiumDropDownMenu class="premium  relative">
+      <li class="flex h-full gap-x-10 justify-center items-center">
+        <div class="flex flex-col justify-around items-center gap-4 ">
+          <a  (click)="setParameter('chair')" (mouseenter)="changeNavImage($event)" [routerLink]="['/Catalog','chair']"
+            ><span (click)="showPremiumDropDownMenu()">Стільці</span> </a>
+          <a (click)="setParameter('table')" (mouseenter)="changeNavImage($event)" [routerLink]="['/Catalog','table']"
+            ><span (click)="showPremiumDropDownMenu()"> Столи</span></a>
+          <a (click)="setParameter('closet')" (mouseenter)="changeNavImage($event)" [routerLink]="['/Catalog','closet']"
+           ><span (click)="showPremiumDropDownMenu()">Шкафи</span></a>
+          <a (click)="setParameter('drawer')" (mouseenter)="changeNavImage($event)" [routerLink]="['/Catalog','drawer']"
+            ><span (click)="showPremiumDropDownMenu()">Гардероб</span></a>
+          <a (click)="setParameter('drawer')" (mouseenter)="changeNavImage($event)" [routerLink]="['/Catalog','drawer']"
+           ><span (click)="showPremiumDropDownMenu()">Догляд</span></a>
+          <a (click)="setParameter('drawer')" [routerLink]="['/Catalog','drawer']"
+             (mouseenter)="changeNavImage($event)" class="w-52 h-auto"><span (click)="showPremiumDropDownMenu()">Пуфіки й крісла</span></a>
+        </div>
+
+        <div>
+          <img class="duration-500" #imageElement2 width="430px"  src="https://firebasestorage.googleapis.com/v0/b/furniture-commercial.appspot.com/o/luxury%20(1).jpg?alt=media&token=2c047d07-359a-41ca-9df3-141b093bc7c4" alt="">
+        </div>
+      </li>
+      <div [routerLink]="['/Catalog','drawer']" (click)="setParameter('drawer')"  class="absolute h-auto bottom-0 mx-auto w-full allStaff  text-center"><div (click)="showPremiumDropDownMenu()"> Усі  товари</div></div>
+    </ul>
+    <a (click)="showDecorDropDownMenu()"
+       class="hover:scale-100 duration-300 hover:bg-orange-950 hover:bg-opacity-30 hover:cursor-pointer"><span
+    >Декор</span></a>
+    <ul #DecorDropDownMenu class="decor">
+      <li>
+        Декор
+      </li>
+    </ul>
+  </div>
+
+  <div class="nav-icon-links">
+    <a class="hover:scale-110 duration-300"><img src="./assets/navicons/heart%20(2).png" alt="" width="23px"></a>
+    <a (click)="resetNavBar()" routerLink="/Card" class="hover:scale-110 duration-300" href=""><img src="./assets/navicons/cart.png" alt=""
+                                                                            width="25px"></a>
+    <p class="quantity">{{quantity}}</p>
+  </div>
+</div>
+
+

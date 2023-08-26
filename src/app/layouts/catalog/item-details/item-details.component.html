@@ -1,0 +1,45 @@
+<section class="item-details-wrapper">
+  <div class="item-photos ">
+    <div class="md:w-1/6 w-full h-20 md:h-4/5  flex md:flex-col gap-2">
+      <img (click)="getSrc($event)" class="w-full hover:cursor-pointer h-full" [src]="info?.image" alt="">
+      <img (click)="getSrc($event)" class="w-full hover:cursor-pointer  h-full"
+           src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+           alt="">
+      <img (click)="getSrc($event)" class="w-full hover:cursor-pointer  h-full"
+           src="https://images.pexels.com/photos/1386604/pexels-photo-1386604.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+           alt="">
+    </div>
+    <img (click)="showModal($event)" #bigImageElement class="w-full md:w-2/3 h-4/5" [src]="info?.image" alt="">
+  </div>
+  <div class="item-description">
+    <h2 #name class="item-name">{{itemId}}</h2>
+    <h2 #price class="price">{{info?.price}}₴</h2>
+    <h2 #collection class="collection">Collection "Levante"</h2>
+
+    <h2 #material class="collection">Material - Oak</h2>
+    <p #description class="description">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur culpa deserunt error esse fuga laborum
+      libero magnam obcaecati quis voluptatibus?
+    </p>
+    <div class="w-full flex justify-center items-center h-50px gap-5">
+      <button (click)="addToCard({
+      _name:name.innerText,
+      _price:info?.price,
+      _colection:collection.innerText,
+      _material:material.innerText,
+      _descripion:description.innerText,
+      _image:info?.image,
+      _quantity:1
+      })"
+              class="AddToCard">Add to card
+      </button>
+      <button class="AddToFavourites">Add to Favorites</button>
+    </div>
+  </div>
+  <div *ngIf="addingNewProduct" #modal class="modal">Товар Додано до корзини</div>
+  <div *ngIf="isModalVisible" class="popup">
+    <img [src]="modalSrc" alt="">
+    <button (click)="closeModal()">X</button>
+  </div>
+</section>
+

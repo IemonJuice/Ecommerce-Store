@@ -1,0 +1,99 @@
+<div id="card" class="relative">
+  <div class="section-left">
+    <h2 class="card-heading">
+      <span style="font-weight: bold; margin-right: 10px">Корзина</span>
+      {{haveToOrder}}</h2>
+    <section class="order-list ">
+      <div class="list-heading">
+        <h2 class="text-2xl font-serif">Корзина</h2>
+        <p>{{quantity}} продукт(и) всередині</p>
+      </div>
+      <div class="shopping-list-container">
+        <div *ngFor="let checkoutItem of listOfCheckouts;let i = index" class="checkoutItem">
+          <div
+            [routerLink]="'../Catalog/'+checkoutItem._name.slice(0,-1).toLowerCase() +'/'+checkoutItem._name.toLowerCase()"
+            class="w-44 p-2"><img class="checkout-image" [src]="checkoutItem?._image" alt=""></div>
+          <div class="w-2/3 ml-2.5 flex flex-col  gap-5 relative">
+            <h2
+              [routerLink]="'../Catalog/'+checkoutItem._name.slice(0,-1).toLowerCase() +'/'+checkoutItem._name.toLowerCase()"
+              class="checkout-name">{{checkoutItem?._name}}</h2>
+            <h2 class="checkout-price">
+              <span>Price</span>{{checkoutItem?._price}}₴</h2>
+            <h2 class="checkout-collection"><span style="font-style: italic;margin-right: 5px">Колекція</span> 'Levante'
+            </h2>
+            <h2 class="checkout-material"><span style="font-style: italic; margin-right: 10px"> Матеріал </span> 'Oak'
+            </h2>
+          </div>
+          <button
+            class="w-6 h-6 rounded-full bg-orange-950 bg-opacity-30 text-xs right-0 absolute top-4 hover:bg-red-600 hover:text-white duration-300"
+            (click)="remove(i)">X
+          </button>
+          <div class="w-40 h-6  right-2 absolute bottom-4  duration-300">Кількість {{checkoutItem?._quantity}}
+            <button class="btn" (click)="IncrementItems(i)">+</button>
+            <button class="btn" (click)="DecrementItems(i)">-</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div *ngIf="quantity>0" class="section-right">
+    <h2 class="totalPayment">Загально - {{totalSum}}₴</h2>
+    <div class="payments">
+      <div class="crypto">Передплата Криптою</div>
+      <div (click)="showPaymentForm()" class="crypto">Заплатити При Отриманні</div>
+    </div>
+    <div class="support"></div>
+  </div>
+  <div class="payment-form" *ngIf="paymentFormVisibility">
+    <form [formGroup]="orderForm" [ngClass]="{
+    'form': true,
+    'show-form': paymentFormVisibility,
+    'hide-form': !paymentFormVisibility
+  }"
+          #form class="flex flex-col md:w-1/2 w-5/6 bg-white h-full form relative">
+      <h2 class="header-payment-text">Завершіть замовлення</h2>
+
+      <input [minlength]="5" placeholder="Повне ім'я" type="text" formControlName="fullName"
+             [class.error]="orderForm.get('fullName')?.invalid &&
+             orderForm.get('fullName')?.dirty ||
+             orderForm.get('fullName')?.touched"
+             [class.correct]="orderForm.get('fullName')?.valid">
+
+      <input [minlength]="5" placeholder="Адреса (Область - Місто - вулиця)" type="text" formControlName="address"
+             [class.error]="orderForm.get('address')?.invalid &&
+             orderForm.get('address')?.dirty ||
+             orderForm.get('address')?.touched"
+             [class.correct]="orderForm.get('address')?.valid">
+
+      <input placeholder="Телефон" type="number" formControlName="phone"
+             [class.error]="orderForm.get('phone')?.invalid &&
+             orderForm.get('phone')?.dirty ||
+             orderForm.get('phone')?.touched"
+             [class.correct]="orderForm.get('phone')?.valid">
+
+      <input placeholder="Побажання (не обов'язково)" type="text" formControlName="expectations"
+             [class.error]="orderForm.get('expectations')?.invalid &&
+             orderForm.get('expectations')?.dirty ||
+             orderForm.get('expectations')?.touched"
+             [class.correct]="orderForm.get('expectations')?.valid">
+
+      <button (click)="confirmCheckout()">Замовити</button>
+
+    </form>
+
+  </div>
+  <div [ngClass]="{
+    'show-success': successOrder,
+    'show-failure': !successOrder,
+  }"
+  >
+    <div class="card-success">
+      <p>Ваше замовлення буде оброблено незабаром!</p>
+        <button (click)="showPaymentForm()" routerLink="/Home" class="bottom-24 absolute">
+          На головний екран
+        </button>
+    </div>
+  </div>
+</div>
+
+
